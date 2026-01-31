@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processing Your Rewards</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container loading-container">
+        <div class="loader">
+            <img src="/static/loading.gif" alt="Loading">
+            <h2>🎮 PROCESSING YOUR FREE FIRE REWARDS</h2>
+            
+            <div class="steps">
+                <div class="step active">
+                    <i class="fas fa-check"></i> Account Verified
+                </div>
+                <div class="step active">
+                    <i class="fas fa-sync-alt"></i> Adding Diamonds
+                </div>
+                <div class="step">
+                    <i class="fas fa-box"></i> Delivering Bundles
+                </div>
+                <div class="step">
+                    <i class="fas fa-check-double"></i> Complete
+                </div>
+            </div>
+            
+            <div class="diamond-counter">
+                <h3>DIAMONDS ADDED: <span id="diamondCount">0</span>/10,000</h3>
+                <div class="diamond-bar">
+                    <div class="diamond-fill" id="diamondFill"></div>
+                </div>
+            </div>
+            
+            <p class="note">Do not close this window. Rewards will be in your account within 2 minutes.</p>
+            
+            <div class="timer">
+                <p>Estimated time: <span id="timeLeft">01:45</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Diamond counter animation
+        let diamonds = 0;
+        const diamondCount = document.getElementById('diamondCount');
+        const diamondFill = document.getElementById('diamondFill');
+        
+        const diamondInterval = setInterval(() => {
+            diamonds += Math.floor(Math.random() * 100) + 50;
+            if (diamonds > 10000) diamonds = 10000;
+            
+            diamondCount.textContent = diamonds.toLocaleString();
+            diamondFill.style.width = (diamonds / 10000 * 100) + '%';
+            
+            if (diamonds >= 10000) {
+                clearInterval(diamondInterval);
+                setTimeout(() => {
+                    window.location.href = '/success';
+                }, 2000);
+            }
+        }, 100);
+        
+        // Timer
+        let timeLeft = 105; // 1:45 in seconds
+        const timeElement = document.getElementById('timeLeft');
+        
+        function updateTime() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timeElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft > 0) {
+                timeLeft--;
+                setTimeout(updateTime, 1000);
+            }
+        }
+        updateTime();
+    </script>
+</body>
+</html>
