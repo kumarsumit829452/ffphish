@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎁 FREE FIRE REWARDS - 10K DIAMONDS + BUNDLES</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="/static/freefire-logo.png" alt="Free Fire" class="logo">
+            <h1><i class="fas fa-gem"></i> FREE 10,000 DIAMONDS + BUNDLES</h1>
+            <p class="subtitle">Official Garena Free Fire Reward Event</p>
+            <div class="live-count">
+                <i class="fas fa-users"></i> <span id="liveCount">12,458</span> Players Claimed
+            </div>
+        </div>
+
+        <!-- Rewards Banner -->
+        <div class="rewards-banner">
+            <div class="reward-item">
+                <img src="/static/diamonds.png" alt="Diamonds">
+                <h3>10,000 DIAMONDS</h3>
+                <p>Instant Delivery</p>
+            </div>
+            <div class="reward-item">
+                <img src="/static/sakura-bundle.jpg" alt="Sakura Bundle">
+                <h3>SAKURA BUNDLE</h3>
+                <p>Limited Edition</p>
+            </div>
+            <div class="reward-item">
+                <img src="/static/hiphop-bundle.jpg" alt="Hip Hop Bundle">
+                <h3>HIP HOP BUNDLE</h3>
+                <p>Exclusive</p>
+            </div>
+        </div>
+
+        <!-- Claim Form -->
+        <div class="claim-box">
+            <h2><i class="fas fa-gift"></i> SELECT YOUR REWARDS</h2>
+            
+            <form action="/claim" method="POST">
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="diamonds" value="10000" checked>
+                        💎 10,000 FREE DIAMONDS
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="sakura" value="yes" checked>
+                        🌸 SAKURA BUNDLE (Full Set)
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="hiphop" value="yes" checked>
+                        🎵 HIP HOP BUNDLE
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="skin" value="yes" checked>
+                        👕 CHARACTER SKIN
+                    </label>
+                </div>
+
+                <button type="submit" class="claim-btn">
+                    <i class="fas fa-rocket"></i> CLAIM NOW
+                </button>
+            </form>
+
+            <div class="timer">
+                <p><i class="fas fa-clock"></i> Event Ends In: <span id="timer">15:00</span></p>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="testimonials">
+            <h3><i class="fas fa-comment-dots"></i> PLAYER REVIEWS</h3>
+            <div class="testimonial">
+                <p>"Got 10k diamonds in 5 minutes! Working 2024!" - ProPlayer99</p>
+            </div>
+            <div class="testimonial">
+                <p>"Sakura bundle is lit! Thanks for this event!" - FF_Gamer</p>
+            </div>
+            <div class="testimonial">
+                <p>"Legit! Hip hop bundle received instantly!" - NoobMaster</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>This is an official Garena Free Fire event. Not affiliated with Google Play or App Store.</p>
+            <p class="small">© 2024 Garena Free Fire. All rewards are non-transferable.</p>
+        </div>
+    </div>
+
+    <script>
+        // Live counter
+        let userCount = 12458;
+        setInterval(() => {
+            userCount += Math.floor(Math.random() * 3);
+            document.getElementById('liveCount').textContent = userCount.toLocaleString();
+        }, 3000);
+
+        // Timer
+        let timeLeft = 15 * 60;
+        const timerElement = document.getElementById('timer');
+        
+        function updateTimer() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft > 0) {
+                timeLeft--;
+                setTimeout(updateTimer, 1000);
+            }
+        }
+        updateTimer();
+    </script>
+</body>
+</html>
